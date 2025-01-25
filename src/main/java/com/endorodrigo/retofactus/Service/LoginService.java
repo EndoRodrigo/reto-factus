@@ -29,6 +29,7 @@ public class LoginService {
                     .body(login)
                     .retrieve()
                     .toEntity(JsonNode.class);
+            log.info("Request body {}", login.toString());
             log.info("Response status code: {}", response.getStatusCode());
             log.info("Response body: {}", response.getBody());
 
