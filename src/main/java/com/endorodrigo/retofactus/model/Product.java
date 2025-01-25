@@ -14,7 +14,7 @@ public class Product {
     private int standardCodeId;
     private int isExcluded;
     private int tributeId;
-    private List<String> withholdingTaxes;
+    private List<String> withholding_taxes;
 
     public Product(String codeReference, String name, int quantity, double discount, double discountRate, double price, String taxRate, int unitMeasureId, int standardCodeId, int isExcluded, int tributeId, List<String> withholdingTaxes) {
         this.codeReference = codeReference;
@@ -28,7 +28,7 @@ public class Product {
         this.standardCodeId = standardCodeId;
         this.isExcluded = isExcluded;
         this.tributeId = tributeId;
-        this.withholdingTaxes = withholdingTaxes;
+        this.withholding_taxes = withholdingTaxes;
     }
 
     public Product() {
@@ -122,11 +122,11 @@ public class Product {
         this.tributeId = tributeId;
     }
 
-    public List<String> getWithholdingTaxes() {
-        return withholdingTaxes;
+    public List<String> getWithholding_taxes() {
+        return withholding_taxes;
     }
 
-    public void setWithholdingTaxes(List<String> withholdingTaxes) {
-        this.withholdingTaxes = withholdingTaxes;
+    public void setWithholding_taxes(List<String> withholding_taxes) {
+        this.withholding_taxes = withholding_taxes;
     }
 }
