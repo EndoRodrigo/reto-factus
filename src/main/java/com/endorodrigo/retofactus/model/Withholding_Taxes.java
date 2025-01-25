@@ -1,25 +1,18 @@
 package com.endorodrigo.retofactus.model;
 
+import jakarta.persistence.*;
+import lombok.Data;
+
+@Entity
+@Data
 public class Withholding_Taxes {
-    private String code;
-    private String withholdingTaxRate;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Integer id;
+    private String taxName;
+    private String taxValue;
 
-    public Withholding_Taxes() {
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getWithholdingTaxRate() {
-        return withholdingTaxRate;
-    }
-
-    public void setWithholdingTaxRate(String withholdingTaxRate) {
-        this.withholdingTaxRate = withholdingTaxRate;
-    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id")
+    private Product product;
 }
