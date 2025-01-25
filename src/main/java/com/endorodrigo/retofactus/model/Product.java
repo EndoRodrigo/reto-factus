@@ -1,43 +1,32 @@
 package com.endorodrigo.retofactus.model;
 
+import com.endorodrigo.retofactus.Service.LoginService;
+
 import java.util.List;
 
 public class Product {
-    private String codeReference;
+    private String code_reference;
     private String name;
     private int quantity;
     private double discount;
-    private double discountRate;
+    private double discount_rate;
     private double price;
-    private String taxRate;
-    private int unitMeasureId;
-    private int standardCodeId;
-    private int isExcluded;
-    private int tributeId;
-
-    public Product(String codeReference, String name, int quantity, double discount, double discountRate, double price, String taxRate, int unitMeasureId, int standardCodeId, int isExcluded, int tributeId, List<String> withholdingTaxes) {
-        this.codeReference = codeReference;
-        this.name = name;
-        this.quantity = quantity;
-        this.discount = discount;
-        this.discountRate = discountRate;
-        this.price = price;
-        this.taxRate = taxRate;
-        this.unitMeasureId = unitMeasureId;
-        this.standardCodeId = standardCodeId;
-        this.isExcluded = isExcluded;
-        this.tributeId = tributeId;
-    }
+    private String tax_rate;
+    private int unit_measure_id;
+    private int standard_code_id;
+    private int is_excluded;
+    private int tribute_id;
+    private List<Withholding_Taxes> withholding_taxes;
 
     public Product() {
     }
 
-    public String getCodeReference() {
-        return codeReference;
+    public String getCode_reference() {
+        return code_reference;
     }
 
-    public void setCodeReference(String codeReference) {
-        this.codeReference = codeReference;
+    public void setCode_reference(String code_reference) {
+        this.code_reference = code_reference;
     }
 
     public String getName() {
@@ -64,12 +53,12 @@ public class Product {
         this.discount = discount;
     }
 
-    public double getDiscountRate() {
-        return discountRate;
+    public double getDiscount_rate() {
+        return discount_rate;
     }
 
-    public void setDiscountRate(double discountRate) {
-        this.discountRate = discountRate;
+    public void setDiscount_rate(double discount_rate) {
+        this.discount_rate = discount_rate;
     }
 
     public double getPrice() {
@@ -80,51 +69,51 @@ public class Product {
         this.price = price;
     }
 
-    public String getTaxRate() {
-        return taxRate;
+    public String getTax_rate() {
+        return tax_rate;
     }
 
-    public void setTaxRate(String taxRate) {
-        this.taxRate = taxRate;
+    public void setTax_rate(String tax_rate) {
+        this.tax_rate = tax_rate;
     }
 
-    public int getUnitMeasureId() {
-        return unitMeasureId;
+    public int getUnit_measure_id() {
+        return unit_measure_id;
     }
 
-    public void setUnitMeasureId(int unitMeasureId) {
-        this.unitMeasureId = unitMeasureId;
+    public void setUnit_measure_id(int unit_measure_id) {
+        this.unit_measure_id = unit_measure_id;
     }
 
-    public int getStandardCodeId() {
-        return standardCodeId;
+    public int getStandard_code_id() {
+        return standard_code_id;
     }
 
-    public void setStandardCodeId(int standardCodeId) {
-        this.standardCodeId = standardCodeId;
+    public void setStandard_code_id(int standard_code_id) {
+        this.standard_code_id = standard_code_id;
     }
 
-    public int getIsExcluded() {
-        return isExcluded;
+    public int getIs_excluded() {
+        return is_excluded;
     }
 
-    public void setIsExcluded(int isExcluded) {
-        this.isExcluded = isExcluded;
+    public void setIs_excluded(int is_excluded) {
+        this.is_excluded = is_excluded;
     }
 
-    public int getTributeId() {
-        return tributeId;
+    public int getTribute_id() {
+        return tribute_id;
     }
 
-    public void setTributeId(int tributeId) {
-        this.tributeId = tributeId;
+    public void setTribute_id(int tribute_id) {
+        this.tribute_id = tribute_id;
     }
 
-    public List<String> getWithholding_taxes() {
+    public List<Withholding_Taxes> getWithholding_taxes() {
         return withholding_taxes;
     }
 
-    public void setWithholding_taxes(List<String> withholding_taxes) {
+    public void setWithholding_taxes(List<Withholding_Taxes> withholding_taxes) {
         this.withholding_taxes = withholding_taxes;
     }
 }
