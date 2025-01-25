@@ -8,11 +8,8 @@ import java.util.Optional;
 public interface ItemService {
 
     List<Product> findAll();
-
-    Optional<Product> findById(Long id);
-
+    Optional<Product> findById(Integer id);
     Product save(Product product);
-
-    void deleteById(Long id);
+    void deleteById(Integer id);
 
 }
