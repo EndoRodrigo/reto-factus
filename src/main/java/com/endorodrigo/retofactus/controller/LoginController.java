@@ -1,6 +1,7 @@
 package com.endorodrigo.retofactus.controller;
 
 import com.endorodrigo.retofactus.Service.LoginService;
+import com.endorodrigo.retofactus.model.Customer;
 import com.endorodrigo.retofactus.model.Login;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
