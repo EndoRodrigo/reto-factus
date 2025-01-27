@@ -1,6 +1,7 @@
 package com.endorodrigo.retofactus.controller;
 
 import com.endorodrigo.retofactus.Service.CustomerService;
+import com.endorodrigo.retofactus.Service.FactusService;
 import com.endorodrigo.retofactus.Service.ItemService;
 import com.endorodrigo.retofactus.model.*;
 import lombok.extern.slf4j.Slf4j;
@@ -22,10 +23,12 @@ public class FactusController {
     private final CustomerService customerService;
     private final ItemService itemService;
     private Factus factus = new Factus();
+    private final FactusService factusService;
 
-    public FactusController(CustomerService customerService, ItemService itemService) {
+    public FactusController(CustomerService customerService, ItemService itemService, FactusService factusService) {
         this.customerService = customerService;
         this.itemService = itemService;
+        this.factusService = factusService;
     }
 
     @GetMapping
@@ -49,7 +52,7 @@ public class FactusController {
 
         factus.setItems(items);
         log.info("Factura -> {}", factus.toString());
-
+        factusService.postDataWithToken(factus);
         return "redirect:/cart";
     }
 }
