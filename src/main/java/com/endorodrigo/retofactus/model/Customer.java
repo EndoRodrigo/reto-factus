@@ -4,31 +4,35 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Getter;
+
 
 @Entity
 public class Customer {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private Integer identification_document_id;
-    private String identification;
-    private String names;
-    private String address;
-    private String email;
-    private String phone;
-    private String legal_organization_id;
-    private Integer tribute_id;
-    private Integer municipality_id;
+    private Integer identification_document_id = Integer.valueOf(0);
+    private String identification = "";
+    private String names = "";
+    private String address = "";
+    private String email = "";
+    private String phone = "";
+    private String legal_organization_id = "";
+    private Integer tribute_id = Integer.valueOf(0);
+    private Integer municipality_id = Integer.valueOf(0);
 
     public Customer() {
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public Customer(Integer identification_document_id, String identification, String names, String address, String email, String legal_organization_id, String phone, Integer tribute_id, Integer municipality_id) {
+        this.identification_document_id = identification_document_id;
+        this.identification = identification;
+        this.names = names;
+        this.address = address;
+        this.email = email;
+        this.legal_organization_id = legal_organization_id;
+        this.phone = phone;
+        this.tribute_id = tribute_id;
+        this.municipality_id = municipality_id;
     }
 
     public Integer getIdentification_document_id() {
@@ -105,8 +109,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return  "id=" + id +
-                ", identification_document_id=" + identification_document_id +
+        return ", identification_document_id=" + identification_document_id +
                 ", identification='" + identification + '\'' +
                 ", names='" + names + '\'' +
                 ", address='" + address + '\'' +

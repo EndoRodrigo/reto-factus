@@ -1,11 +1,10 @@
 package com.endorodrigo.retofactus.Service;
 
-import com.endorodrigo.retofactus.model.Product;
+import com.endorodrigo.retofactus.model.Items;
 import com.endorodrigo.retofactus.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,20 +19,21 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public List<Product> findAll() {
-        List<Product> products = (List<Product>) productRepositoty.findAll();
+    public List<Items> findAll() {
+        List<Items> products = (List<Items>) productRepositoty.findAll();
         log.info("Lista de produtos: {}", products);
         return products;
     }
 
     @Override
-    public Optional<Product> findById(Integer id) {
-
-        return productRepositoty.findById(id);
+    public Optional<Items> findById(String id) {
+        Optional<Items> product = productRepositoty.findByName(id);
+        log.info("Produto encontrado: {}", product);
+        return product;
     }
 
     @Override
-    public Product save(Product product) {
+    public Items save(Items product) {
         return productRepositoty.save(product);
     }
 
