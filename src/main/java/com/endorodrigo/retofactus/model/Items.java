@@ -23,6 +23,6 @@ public class Items {
     private Integer tribute_id = Integer.valueOf(0);
 
     @OneToMany(mappedBy = "items", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Withholding_Taxes> Withholding_Taxes = new ArrayList<>();
+    private List<Withholding_Taxes> Withholding_Taxes;
 }
 

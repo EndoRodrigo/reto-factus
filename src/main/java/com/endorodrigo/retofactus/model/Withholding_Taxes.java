@@ -15,4 +15,12 @@ public class Withholding_Taxes {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "code_reference")
     private Items items;
+
+    public Withholding_Taxes(String taxName, String taxValue) {
+        this.taxName = taxName;
+        this.taxValue = taxValue;
+    }
+
+    public Withholding_Taxes() {
+    }
 }

@@ -12,6 +12,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON;
 @Service
 @Slf4j
 public class LoginService {
+    public static String TOKEN = null;
     private final RestClient restClient;
 
     public LoginService(RestClient.Builder restClientBuilder) {
@@ -35,7 +36,7 @@ public class LoginService {
 
             if (response.getBody() != null) {
                 body = response.getBody();
-                login.setToken(body.get("access_token").asText());
+                TOKEN = body.get("access_token").asText();
             } else {
                 log.info("Response body is empty");
             }

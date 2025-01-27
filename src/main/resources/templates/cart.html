@@ -208,26 +208,53 @@
 
       <h3 class="mt-5">Lista de Clientes</h3>
       <div th:text="'no hay facturas en el sistema!'" th:if="${#lists.isEmpty(crear)}"></div>
-      <table class="table table-sm table-dark" th:if="${not #lists.isEmpty(crear)}">
-        <thead>
-        <tr>
-          <th scope="col"># Facturacion</th>
-          <th scope="col">Referencias</th>
-          <th scope="col">Cedula</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Correo</th>
-          <th scope="col">Celular</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr >
-          <td th:text="${crear.numbering_range_id}"></td>
-          <td th:text="${crear.reference_code}"></td>
+        <table class="table table-sm table-dark" th:if="${not #lists.isEmpty(crear)}">
+          <thead>
+          <tr>
+            <th scope="col"># Facturación</th>
+            <th scope="col">Código de Referencia</th>
+            <th scope="col">Observación</th>
+            <th scope="col">Método de Pago</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Teléfono</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="factura : ${crear}">
+            <td th:text="${factura.numbering_range_id}"></td>
+            <td th:text="${factura.reference_code}"></td>
+            <td th:text="${factura.observation != null ? factura.observation : 'No disponible'}"></td>
+            <td th:text="${factura.payment_method_code}"></td>
+            <td th:text="${factura.customer != null ? factura.customer.names : 'No disponible'}"></td>
+            <td th:text="${factura.customer != null ? factura.customer.email : 'No disponible'}"></td>
+            <td th:text="${factura.customer != null ? factura.customer.phone : 'No disponible'}"></td>
+          </tr>
+          </tbody>
+        </table>
 
-        </tr>
-        </tbody>
-      </table>
-
+        <!-- Detalles de los productos -->
+        <h4 class="mt-4">Detalles de los Productos</h4>
+        <table class="table table-sm table-bordered" th:if="${not #lists.isEmpty(crear)}">
+          <thead>
+          <tr>
+            <th scope="col">Código de Producto</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Tasa de Impuesto</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="data : ${crear.getItems()}">
+            <td th:text="${data.code_reference}"></td>
+            <td th:text="${data.name}"></td>
+            <td th:text="${data.quantity}"></td>
+            <td th:text="${data.price}"></td>
+            <td th:text="${data.tax_rate}"></td>
+          </tr>
+          </tbody>
+        </table>
     </div>
   </div>
 </div>
