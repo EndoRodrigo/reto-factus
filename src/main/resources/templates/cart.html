@@ -235,7 +235,7 @@
 
         <!-- Detalles de los productos -->
         <h4 class="mt-4">Detalles de los Productos</h4>
-        <table class="table table-sm table-bordered">
+        <table class="table table-sm table-bordered" th:if="${not #lists.isEmpty(crear)}">
           <thead>
           <tr>
             <th scope="col">Código de Producto</th>
