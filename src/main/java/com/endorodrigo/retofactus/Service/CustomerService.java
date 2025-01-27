@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface CustomerService {
     List<Customer> findAll();
-    Optional<Customer> findById(Long id);
+    Optional<Customer> findByIdentification(String identification);
     Customer save(Customer product);
     void deleteById(Long id);
 }

@@ -13,6 +13,6 @@ public class Withholding_Taxes {
     private String taxValue;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id")
-    private Product product;
+    @JoinColumn(name = "code_reference")
+    private Items items;
 }

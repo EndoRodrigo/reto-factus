@@ -1,15 +1,15 @@
 package com.endorodrigo.retofactus.Service;
 
-import com.endorodrigo.retofactus.model.Product;
+import com.endorodrigo.retofactus.model.Items;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface ItemService {
 
-    List<Product> findAll();
-    Optional<Product> findById(Integer id);
-    Product save(Product product);
+    List<Items> findAll();
+    Optional<Items> findById(String id);
+    Items save(Items product);
     void deleteById(Integer id);
 
 }

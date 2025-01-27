@@ -26,8 +26,10 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Optional<Customer> findById(Long id) {
-        return customerRepository.findById(id);
+    public Optional<Customer> findByIdentification(String id) {
+        Optional<Customer> findCustomer = customerRepository.findByIdentification(id).stream().findFirst();
+        log.info("Find customer: {}", findCustomer);
+        return findCustomer;
     }
 
     @Override

@@ -1,8 +1,7 @@
 package com.endorodrigo.retofactus.controller;
 
 import com.endorodrigo.retofactus.Service.ItemService;
-import com.endorodrigo.retofactus.model.Login;
-import com.endorodrigo.retofactus.model.Product;
+import com.endorodrigo.retofactus.model.Items;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,14 +23,14 @@ public class ProductController {
 
     @GetMapping
     public String getProduct(Model model) {
-        model.addAttribute("producto", new Product());
+        model.addAttribute("producto", new Items());
         model.addAttribute("allproducto", itemService.findAll());
         return "product";
     }
 
     @PostMapping
-    public String addProduct(Product product, BindingResult result, Model model, RedirectAttributes redirect, SessionStatus status) {
-        Product rs = itemService.save(product);
+    public String addProduct(Items product, BindingResult result, Model model, RedirectAttributes redirect, SessionStatus status) {
+        Items rs = itemService.save(product);
         return "redirect:/product";
     }
 }
