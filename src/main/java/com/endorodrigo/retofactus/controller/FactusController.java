@@ -2,10 +2,7 @@ package com.endorodrigo.retofactus.controller;
 
 import com.endorodrigo.retofactus.Service.CustomerService;
 import com.endorodrigo.retofactus.Service.ItemService;
-import com.endorodrigo.retofactus.model.Consulta;
-import com.endorodrigo.retofactus.model.Customer;
-import com.endorodrigo.retofactus.model.Factus;
-import com.endorodrigo.retofactus.model.Items;
+import com.endorodrigo.retofactus.model.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,18 +21,18 @@ public class FactusController {
 
     private final CustomerService customerService;
     private final ItemService itemService;
-    private Factus factus;
+    private Factus factus = new Factus();
 
     public FactusController(CustomerService customerService, ItemService itemService) {
         this.customerService = customerService;
         this.itemService = itemService;
-        this.factus = new Factus();
     }
 
     @GetMapping
     public String getInformaion(Model model) {
         model.addAttribute("consulta", new Consulta());
         model.addAttribute("crear", factus);
+        log.info("Consulta informada GET {}", factus);
         return "cart";
     }
 
@@ -46,13 +43,13 @@ public class FactusController {
         log.info(client.toString());
         client.ifPresent(factus::setCustomer);
 
-        Optional<Items> products = itemService.findById(consulta.getConsultProduct());
+        Optional<Items> product = itemService.findById(consulta.getConsultProduct());
         List<Items> items = new ArrayList<>();
-        products.ifPresent(items::add);
+        product.ifPresent(items::add);
 
         factus.setItems(items);
-        log.info(" Factura -> {}",factus.toString());
+        log.info("Factura -> {}", factus.toString());
 
-        return "cart";
+        return "redirect:/cart";
     }
 }

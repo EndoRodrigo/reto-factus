@@ -10,29 +10,17 @@ import lombok.Getter;
 @Entity
 public class Customer {
     @Id
-    private Integer identification_document_id = Integer.valueOf(0);
-    private String identification = "";
-    private String names = "";
-    private String address = "";
-    private String email = "";
-    private String phone = "";
-    private String legal_organization_id = "";
-    private Integer tribute_id = Integer.valueOf(0);
-    private Integer municipality_id = Integer.valueOf(0);
+    private Integer identification_document_id;
+    private String identification;
+    private String names;
+    private String address;
+    private String email;
+    private String phone;
+    private String legal_organization_id;
+    private Integer tribute_id;
+    private Integer municipality_id;
 
     public Customer() {
-    }
-
-    public Customer(Integer identification_document_id, String identification, String names, String address, String email, String legal_organization_id, String phone, Integer tribute_id, Integer municipality_id) {
-        this.identification_document_id = identification_document_id;
-        this.identification = identification;
-        this.names = names;
-        this.address = address;
-        this.email = email;
-        this.legal_organization_id = legal_organization_id;
-        this.phone = phone;
-        this.tribute_id = tribute_id;
-        this.municipality_id = municipality_id;
     }
 
     public Integer getIdentification_document_id() {
